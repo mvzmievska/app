@@ -1,0 +1,137 @@
+/* Sets the box-sizing to border-box for all elements, making elements' dimensions include padding and border.
+   This makes it easier to size elements. Sets the default height of the document to 100% and removes the default margin. */
+html {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+}
+
+/* Applies a flex layout to the body to easily center the calculator both vertically and horizontally.
+   Sets the body to cover the full height of the viewport, removes the default margin, applies a gradient background for aesthetics,
+   and sets a default font for text within the body. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(320deg, #808080, #A0A0A0, #808080);
+    font-family: 'Dosis', 'sans-serif';
+}
+
+/* Styles the main wrapper of the calculator, applying a background color, setting its dimensions,
+   and using flexbox to center its contents. Additionally, applies styling for depth (box-shadow) and aesthetics (border-radius). */
+.wrapper {
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0);
+    border-radius: 10px;
+}
+
+/* Styles the screen of the calculator. Applies a gradient background matching the body's background,
+   sets dimensions and positioning, and styles the border and shadow for a consistent look with the wrapper. */
+.screen {
+    background: linear-gradient(320deg, #808080, #A0A0A0, #808080);
+    width: 280px;
+    height: 60px;
+    border-radius: 10px;
+    text-align: end;
+    padding-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    font-size: 30px;
+    color: white;
+    padding-top: 8px;
+}
+
+/* Defines the layout for rows of calculator buttons, spacing them evenly. */
+.calc-button-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+/* Sets up the container for calculator buttons, defining its width and stacking direction. */
+.calc-buttons {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Applies a consistent style to all calculator buttons, with a semi-transparent background,
+   subtle shadow for depth, rounded corners, and a blur effect for a frosted glass appearance. */
+.calc-button {
+    background-color: rgba(255, 255, 255);
+    height: 50px;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 14px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    flex-basis: 20%;
+    font-size: 24px;
+    border: 1px solid rgba(35, 35, 35, 0.3);
+}
+
+/* Special styling for the last child of button rows, typically operation buttons,
+   setting them apart with a distinct gradient background and white text color. */
+.calc-button:last-child {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 14px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    background: linear-gradient(320deg, #808080, #A0A0A0, #808080);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Hover effect for the last child button, changing its background to white and text color to the inherited color. */
+.calc-button:last-child:hover {
+    background: white;
+    color: inherit;
+    border: 1px solid rgba(35, 35, 35, 0.3);
+}
+
+/* Styles applied to calculator buttons when hovered over by the mouse.
+   Changes the background to a lighter gradient for visual feedback,
+   darkens the text color for contrast, and slightly increases the button size
+   to indicate it's interactive. Smooth transitions for background and transform properties enhance the user experience. */
+.calc-button:hover {
+    background: linear-gradient(320deg, #e0e0e0, #f0f0f0, #e0e0e0);
+    color: #333;
+    transform: scale(1.05);
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* Styles applied to calculator buttons when they are clicked (active state).
+   Uses the same background gradient as the hover state but darkens it for a pressed effect,
+   maintains the text color for consistency, and slightly decreases the button size
+   to mimic a pressing action. Smooth transitions for background and transform properties are used for a tactile feedback effect. */
+.calc-button:active {
+    background: linear-gradient(320deg, #e0e0e0, #f0f0f0, #e0e0e0);
+    color: #333;
+    transform: scale(0.95);
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* Custom flex-basis properties for specific buttons to control their width within the flex container.
+   The '.double' class is likely used for buttons that should be approximately half the width of the container
+   (but slightly less to accommodate margins/padding between buttons),
+   making them stand out or serve a different function (e.g., the '0' or 'clear' button). */
+.double {
+    flex-basis: 47%;
+}
+
+/* The '.zero' class increases the width of the button to cover most of the container's width,
+   making it significantly wider than other buttons. This is typically used for the '0' button
+   in a calculator, as it often requires more space or prominence in the layout. */
+.zero {
+    flex-basis: 73%;
+}
